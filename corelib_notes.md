@@ -216,4 +216,63 @@ Not really sure about this one, but here is a paper that explains it I guess: [h
 
 ### result.cairo
 
+Defines the `Result` enum which can be `Ok` or `Err`.
 
+Supports the following functions:
+
+- `expect()`
+- `unwrap()`
+- `expect_err()`
+- `unwrap_err()`
+- `is_ok()`
+- `is_err()`
+
+### serde.cairo
+
+Seems like some logic where you can "serialize" or "deserialize" a bunch of types
+
+Not sure how this would be used or why though.
+
+### starknet.cairo
+
+This `use`'s a bunch of StarkNet related functionality and brings it into Cairo.
+
+Here are some of them:
+
+- `storage_access`
+- `syscalls`
+- `contract_address`
+- `class_hash`
+- `info`
+
+Also implements a `SyscallResult` type with the only functionality being `unwrap_syscall()`
+
+### test.cairo
+
+A big file here. All it really does is test the implementanions in all the other files listed here.
+
+So in terms of learning Cairo stuff it won't prove as useful. Going to skip over this.
+
+### testing.cairo
+
+Very small, only one line. Defines the extern function `get_available_gas`. Not sure why this is for testing only though.
+
+I thought gas related stuff was part of normal execution? Maybe this is testing-specific stuff somehow?
+
+### traits.cairo
+
+Defines all the traits needed that will act as operators. (add, eq, sub, div, mod, etc...)
+
+Pretty sure this gets used by all the other type implementations.
+
+Also defines some one like `try_into()` and `destruct()` 
+
+### zeroable.cairo
+
+Defines a `Zeroable<T>` trait with the functions:
+
+- `zero()`
+- `is_zero()`
+- `is_non_zero()`
+
+This can apply to `felt252` values.
